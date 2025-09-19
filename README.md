@@ -6,7 +6,7 @@ This repository serves for any continuation of work (post-submission) based on t
 
 ## Background
 
-This work extends research on hierarchical ontology embeddings (HiT, OnT) for biomedical knowledge retrieval, specifically addressing SNOMED CT; see [the thesis submission](https://dilworth.me/thesis_09_2025.pdf).
+This work extends research on hierarchical ontology embeddings (HiT, OnT) for biomedical knowledge retrieval, specifically addressing SNOMED CT.
 
 ## Aims & Objectives
 
