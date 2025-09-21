@@ -10,7 +10,7 @@ This work extends research on hierarchical ontology embeddings (HiT, OnT) for bi
 
 ## Aims & Objectives
 
-1. Reproduce experimental results in full, documenting any corrections to existing code and/or datasets.
+1. Reproduce experimental results in full, documenting any corrections to existing code and/or datasets. Note: this should include re-training HiT & OnT models on H200 GPU architecture with 141GB of available VRAM *(in an attempt to overcome issues discussed in Appendix.F, i.e. the effects of ontology size)*.
 
 2. Re-evaluate any conclusions and concluding remarks, provide additional reflective remarks.
 
@@ -61,6 +61,8 @@ This repo is, of course, a work in progress. As I won't have **as much** time to
 * Introduction of free variables that ought to be bound, e.g. nDCG should use $dist(C^\star, D)$, not $dist(C,D)$, as C is unbound.
     * Fix: Replace $dist(C,D)$ with $dist(C^\star, D)$, under §4.5.
 * Documented evaluation metric (nDCG) provides good intuition, but does not fully reflect implementation (one-to-one); not a huge issue as it would technically yield the same results, but principally, should be addressed (the footnote does at least draw attention to this).
+* nDCG also defines $dist(C^\star, D) = 0 \iff C^\star = D$; however, this is misleading (and technically inaccurate), since the quotient poset detailed under §3.1. means that any equivalence relations are unaccounted for in this description.
+    * Fix: Replace with $dist(C^\star, D) = 0 \iff C^\star \equiv D$; and we might **explicitly** note that this does, in fact, induce a partial-order (a requisite for the subsequent transitive reduction and resulting Hasse Diagram; the way in which it is currently written under §3.1. implies this, though **it really should be made explicit**; and this, likely, belongs within a *larger proof*).
 
 ### Issues and Uncertainties
 
