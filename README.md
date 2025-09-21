@@ -26,7 +26,7 @@ This work extends research on hierarchical ontology embeddings (HiT, OnT) for bi
 
 ## Roadmap
 
-- **Initial Phase (2-4 weeks):** Reproducing experimental results, dataset reconstruction, and issuing any corrections (if necessary).
+- **Initial Phase (2-4 weeks):** Reproducing experimental results, dataset reconstruction, and issuing any thesis corrections (if necessary).
 - **Extending Existing Work (1-2 month/s):** Improved methodology and experimental implementation, demonstrating transferability in retrieval gains for downstream biomedical QA.
 - **Exploratory research (ongoing):** Proof/lemma for inclusion in writing/paper showing that a transitive reduction of the quasi-ordering discussed in aims & objectives (4) does not collapse to pure hierarchy *(this was something I was initially concerned about)*, then move to better understand which model/s and curvature/s might best suit the task, conduct experiments and report results. Develop a framework to allow for easy adoption of this approach.
 
@@ -51,6 +51,22 @@ This work extends research on hierarchical ontology embeddings (HiT, OnT) for bi
 ## Additional Notes
 
 This repo is, of course, a work in progress. As I won't have **as much** time to work on independent research, progress may be *a little* slower than usual. However, I will try and push updates as frequently as possible.
+
+### Noted Issues with Thesis & Proposed Corrections
+
+* Poorly written abstract in an attempt to save word count.
+    * Fix: Replace the abstract with the original version, see [abstract.tex](corrections/thesis/abstract.tex).
+* Inconsistent (or undefined) notation, e.g. using $Ret_X(q)_k$ when the $top-k$ prefix is undefined.
+    * Fix: Add "In instances where only the top-k candidates are selected, the ranked list is written $Ret_X(q)_{1:k}$ for the top-k prefix." under Problem Definition §3.1.
+* Introduction of free variables that ought to be bound, e.g. nDCG should use $dist(C^\star, D)$, not $dist(C,D)$, as C is unbound.
+    * Fix: Replace $dist(C,D)$ with $dist(C^\star, D)$, under §4.5.
+* Documented evaluation metric (nDCG) provides good intuition, but does not fully reflect implementation (one-to-one); not a huge issue as it would technically yield the same results, but principally, should be addressed (the footnote does at least draw attention to this).
+
+### Issues and Uncertainties
+
+Hyperbolic space (within $B^n_{\kappa}$) must be locally diffeomorphic to $\mathcal{R}^d$ **by definition**--I understand this as a necessary pre-requisite for, e.g. backpropagation of error (since the smoothness property allows for computable derivatives for hierarchical contrastive loss, since it is composed of $d_\kappa$). However, this is relative to the tangent space, rather than some higher $n$-dimensional Euclidean space, no? 
+
+I feel like I still need to work on the intuition and/or mathematics for this, and I'm still uncertain of whether an intrinsic or an extrinsic definition is more appropriate; that is, do we embed some hyperbolic space within a higher $n$-dimensional Euclidean space (in an extrinsic sense), or work purely with the intrinsic definition?
 
 ## License
 
