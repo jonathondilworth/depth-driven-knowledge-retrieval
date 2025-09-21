@@ -64,12 +64,6 @@ This repo is, of course, a work in progress. As I won't have **as much** time to
 * nDCG also defines $dist(C^\star, D) = 0 \iff C^\star = D$; however, this is misleading (and technically inaccurate), since the quotient poset detailed under §3.1. means that any equivalence relations are unaccounted for in this description.
     * Fix: Replace with $dist(C^\star, D) = 0 \iff C^\star \equiv D$; and we might **explicitly** note that this does, in fact, induce a partial-order (a requisite for the subsequent transitive reduction and resulting Hasse Diagram; the way in which it is currently written under §3.1. implies this, though **it really should be made explicit**; and this, likely, belongs within a *larger proof*).
 
-### Issues and Uncertainties
-
-Hyperbolic space (within $B^n_{\kappa}$) must be locally diffeomorphic to $\mathcal{R}^d$ **by definition**--I understand this as a necessary pre-requisite for, e.g. backpropagation of error (since the smoothness property allows for computable derivatives for hierarchical contrastive loss, since it is composed of $d_\kappa$). However, this is relative to the tangent space, rather than some higher $n$-dimensional Euclidean space, no? 
-
-I feel like I still need to work on the intuition and/or mathematics for this, and I'm still uncertain of whether an intrinsic or an extrinsic definition is more appropriate; that is, do we embed some hyperbolic space within a higher $n$-dimensional Euclidean space (in an extrinsic sense), or work purely with the intrinsic definition?
-
 ## License
 
 MIT License
