@@ -10,7 +10,7 @@
 
 **Polyhierarchy:**
 
-**Quasi-order:** The $\sqsubseteq$ relation forms a quasi-order [1], that is, $\sqsubseteq$ i. satisfies reflexivity, and ii. satisfies transitivity; note that under OWL semantics the subClassOf relation is both transitive and reflexive, [2]. This is distinct to a partial-order, as antisymmetry does not hold, i.e. $\not((C \sqsubseteq D \land D \sqsubseteq C) \iff (C = D)), \quad \forall C,D \in \{N_C | N_C \leftarrow \mathcal{O}\}$, or $\not(C = D) \iff (C \sqsubseteq D \land D \sqsubseteq C)$ *(we might note that my formal logic is a little rusty)*.
+**Quasi-order:** The $\sqsubseteq$ relation forms a quasi-order [1], that is, $\sqsubseteq$ i. satisfies reflexivity, and ii. satisfies transitivity; note that under OWL semantics the subClassOf relation is both transitive and reflexive, [2]. This is distinct to a partial-order, as antisymmetry does not hold, i.e. $\neg ((C \sqsubseteq D \land D \sqsubseteq C) \iff (C = D)), \quad \forall C,D \in {N_C | N_C \leftarrow \mathcal{O}}$, or $\neg (C = D) \iff (C \sqsubseteq D \land D \sqsubseteq C)$ *(we might note that my formal logic is a little rusty)*.
 
 **Equivalence**: $C \equiv D$ iff $C \sqsubseteq D \land D \sqsubseteq C$, note that $C$ is not neccesarily equal to $D$, but $C$ can be $\equiv$ to D via a bijective mapping between $C^\mathcal{I} \leftrightarrow D^\mathcal{I}$ *(we omit explicitly defining an interpretation for brevity)*.
 
