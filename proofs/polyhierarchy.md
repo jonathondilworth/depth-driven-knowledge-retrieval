@@ -4,23 +4,83 @@
 
 **Strategy:** Define a pure hierarchy and a polyhierarchy. Then, Inferred $\sqsubseteq$ -> Quasi-order (reflexive + transitive) -> Quotient Poset (satisfies antisymmetry, i.e. collapses equiv to single nodes, forming a partial-order) -> Transitive Reduction (removes transitive edges, simplifying the graph) -> Hasse Diagram -> SNOMED CT Example showing that the transitive reduction of the quotient poset retains a poly-hierarchical structure for the given example -> theorem -> cases for which this holds and does not hold (a proof by example/counterexample; though, I need to think through how to show this..).
 
+**Poly-hierarchy Preservation Under Transitive Reduction**
+
+*Definitions*
+
+Let $(\mathcal{O}, \sqsubseteq)$ be an OWL ontology defined purely in terms of the `subClassOf` relation, with an inferred $\sqsubseteq$ relation.
+
+The inferred $\sqsubseteq$ relation forms a quasi-order, satisfying the reflexive property $\forall C \in N_C : C \sqsubseteq C$ and the transitive property $C \sqsubseteq D \land D \sqsubseteq E \imples C \sqsubseteq E$. Note that a quasi-order does not satisfy antisymmetry.
+
+Equivalence is defined $C \equiv D$ iff $C \sqsubseteq D \land D \sqsubseteq C$.
+
+The quotient $N_C/\equiv$ with order $[C] \leq [D] \iff C \sqsubseteq D$ forms a partial order, which is antisymmetric by construction, yielding a DAG.
+
+Two elements, $a,b$, are incomparable, denoted $a \parallel b$ iff $a \not\leq b \land b \not\leq a$.
+
+*Example*
+
+Consider the following verified SNOMED CT concepts:
+
+$$
+X = \mathrm{Viral pneumonia}, 
+P = \mathrm{Pneumonia}, 
+Q = \mathrm{Viral disease}, 
+Z = \mathrm{Disease}
+$$
+
+Where $X \sqsubseteq P$, $X \sqsubseteq Q$, such that $P \parallel Q$ and $Q \parallel P$, where both $P$ and $Q$ have a common parent, i.e. $P \sqsubseteq Z$ and $Q \sqsubseteq Z$, shown below.
+
+```
+    Z↺
+   / \
+  P↺  Q↺
+   \ /
+    X↺
+```
+
+After quotienting, we have a *partial-order* $[X] < [P]$ and $[X] < [Q]$ with $[P] \parallel [Q]$.
+
+```
+    Z
+   / \
+  P   Q
+   \ /
+    X       *(note: edges are directed upwards from X < P < Z and X < Q < Z)*
+```
+
+*Lemma: Incomparable Parents Preservation.*
+
+Let $(\mathcal{O}, \leq)$ be an OWL ontology with an inferred $\sqsubseteq$ relation, with a **partial order** (after quotienting). If $X$ has parents $P$ and $Q$, where $P \parallel Q$, then both edges $\langle X,P \rangle$ and $\langle X,Q \rangle$ are preserved in the transitive reduction.
+
+*Proof*
+
+Suppose an edge $\langle X,P \rangle$ is removed through transitive reduction, then $\exists [W] : [X] < [W] < [P]$.
+
+```
+    Z
+  /  \
+ P    Q
+ |   /
+ W<-X 
+ 
+ *(I really need this visualisation, hah >.< .. I really don't know if this is a worthwhile proof, still it's a good exercise!)*
+```
+
+But then either:
+
+1. $[W] < [Q]$ implies $[Q] and [P]$ comparable via $[W]$, *contradiction*.
+    * *(contradiction, since there is no way to arrive at both $P$ and $Q$ through $W$, i.e. contradicts $[P] \parallel [Q]$)*.
+2. $[Q] < [W]$ implies $[Q] < [W] < [P]$, *contradiction*.
+    * *(contradiction, for the same reason, i.e. contradicts $[P] \parallel [Q]$)*.
+3. $[W] \parallel [Q]$, then $[X] \rightarrow [Q]$ is not transitive through $[W]$.
+
+$\therefore$ Both edges survive transitive reduction. $\square$
+
+
 --
 
-**Pure Hierarchy:**
-
-**Polyhierarchy:**
-
-**Quasi-order:** The $\sqsubseteq$ relation forms a quasi-order [1], that is, $\sqsubseteq$ i. satisfies reflexivity, and ii. satisfies transitivity; note that under OWL semantics the subClassOf relation is both transitive and reflexive, [2]. This is distinct to a partial-order, as antisymmetry does not hold, i.e. $\neg ((C \sqsubseteq D \land D \sqsubseteq C) \iff (C = D)), \quad \forall C,D \in {N_C | N_C \leftarrow \mathcal{O}}$, or $\neg (C = D) \iff (C \sqsubseteq D \land D \sqsubseteq C)$ *(we might note that my formal logic is a little rusty)*.
-
-**Equivalence**: $C \equiv D$ iff $C \sqsubseteq D \land D \sqsubseteq C$, note that $C$ is not neccesarily equal to $D$, but $C$ can be $\equiv$ to D via a bijective mapping between $C^\mathcal{I} \leftrightarrow D^\mathcal{I}$ *(we omit explicitly defining an interpretation for brevity)*.
-
-**Quotient Poset:** Given the $\sqsubseteq$ relation, as defined over some set $S$, denoted $(S, \sqsubseteq)$, the quotient $S/\equiv$ forms a partial-order $[x] \leq [y]$ iff $x \sqsubseteq y$, which is antisymmetric by construction.
-
-**Transitive Reduction:**
-
-**Hasse Diagram:**
-
---
+*Previous attempts:*
 
 Suppose some concept $X$ has multiple parents $\geq 2$, denoted $P$ and $Q$, where $P$ and $Q$ share a common parent $Z$. If edges $\langle P,Q \rangle$, $\langle Q,P \rangle$ do not exist, then two distinct paths from $X \rightarrow Z$ exist.
 
