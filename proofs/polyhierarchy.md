@@ -38,8 +38,23 @@ Where $X \sqsubseteq P$, $X \sqsubseteq Q$, such that $P \parallel Q$ and $Q \pa
    / \
   P↺  Q↺
    \ /
-    X↺
+    X↺      *(note: edges are directed upwards)*
+            There is a problem, in that the diagram is not a faithful characterisation of the description.
+            One would be forgiven for thinking an edge should exist from X to Z, but really what the diagram
+            ought to look like is:
+
+    Z↺
+   / \
+  P↺  Q↺
+  |   |
+  *   *     (* denotes paths of arbitrary length).
+   \ /
+    X↺      Now it becomes apparent as to WHY (X->Z) is not included in the original diagram.
+            We should think carefully about how to show this if using visual aids in any final writing/s.
+
 ```
+
+*(Another problem that we have here, is that quotienting simply collapses the equiv relations to single nodes, so that we don't have, for example `X <-> C`, where `C` is some equiv class; and technically in this diagram, we had a partial-order anyway, so it would seem to be misleading).*
 
 After quotienting, we have a *partial-order* $[X] < [P]$ and $[X] < [Q]$ with $[P] \parallel [Q]$.
 
@@ -69,7 +84,6 @@ But then either:
 
 $\therefore$ Both edges survive transitive reduction. $\square$
 
---
 
 ## Original Drafts
 
