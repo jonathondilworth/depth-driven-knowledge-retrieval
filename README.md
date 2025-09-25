@@ -1,14 +1,16 @@
-# Depth Driven Knowledge Retrieval
+# Depth Driven Knowledge Retrieval with Hyperbolic Bi-Encoders for Biomedical Question Answering in SNOMED CT
 
-This repository serves for any continuation of work (post-submission) based on the [https://github.com/jonathondilworth/uom-thesis](https://github.com/jonathondilworth/uom-thesis) repo.
-
-**Note:** Any corrections and continuations of exploratory research *(in part due to my own curiosity, and perhaps culminating in a short paper)* will be pushed here, as to not affect the integrity of timestamps in [uom-thesis](https://github.com/jonathondilworth/uom-thesis) post-submission (besides a [one-liner modification in the README.md](https://github.com/jonathondilworth/uom-thesis/pull/2/commits/c5a7979cb29db1e8fde0f9baa4f5ca03e314171f)).
+This repository serves for any continuation of work (post-submission) based on the [https://github.com/jonathondilworth/uom-thesis](https://github.com/jonathondilworth/uom-thesis) repo. Any corrections and continuation of research efforts will be pushed here, as to not affect the integrity of timestamps in [uom-thesis](https://github.com/jonathondilworth/uom-thesis).
 
 ## Background
 
-This work extends research on hierarchical ontology embeddings (HiT, OnT) for biomedical knowledge retrieval, specifically addressing SNOMED CT.
+This work extends research on effective knowledge retrieval using transformer-based ontology embeddings, i.e. HiT and OnT, applied to biomedical question answering, with a specific focus on SNOMED CT.
 
-## Aims & Objectives
+**Number of noted corrections (25/09/2025):** 6
+
+**Currently working on:** Re-training HiT-FULL and OnT-FULL on H200 GPU architecture; increased batch size from $32$ to $64$ and $96$, changed epochs from $1$ to $2$; and decreased the learning rate from $1e-5$ to $5e-6$. Spending some time thoughtfully reflecting upon methodological decisions and re-evaluating.
+
+## Aims
 
 1. Reproduce experimental results in full, documenting any corrections to existing code and/or datasets. Note: this should include re-training HiT & OnT models on H200 GPU architecture with 141GB of available VRAM *(in an attempt to overcome issues discussed in Appendix.F, i.e. the effects of ontology size)*.
 
@@ -29,6 +31,17 @@ This work extends research on hierarchical ontology embeddings (HiT, OnT) for bi
 - **Initial Phase (2-4 weeks):** Reproducing experimental results, dataset reconstruction, and issuing any thesis corrections (if necessary). *(Update 22.09.25)* Note that editorial changes to the original thesis are likely required. Details on product manifolds should likely be folded into the preliminaries section, and we can probably collapse the encoder-only paragraphs into a single paragraph *(and possibly trim the introductory materials on Ontology)*.
 - **Extending Existing Work (1-2 month/s):** Improved methodology and experimental implementation, demonstrating transferability in retrieval gains for downstream biomedical QA.
 - **Exploratory research (ongoing):** A proof for inclusion in writing/paper showing that: $\sqsubseteq$ forms a quasi-order; then, the quotient poset $\rightarrow$ forms a partial order $\rightarrow$ allows for transitive reduction $\rightarrow$ the resulting Hasse diagram *(this is demonstrated through the example in Preliminaries, but a proof that further shows the retainment of poly-hierarchy/DAG ought to strengthen the motivation behind the use of mixed model spaces*); i.e. show that (4) does not collapse to pure hierarchy *(as I was initially concerned about this; however, having worked though multiple examples, this can be shown formally)*, then move to better understand which model/s and curvature/s might best suit the task *(spherical + hierarchical + euclidean)*, conduct experiments and report results. Develop a framework to allow for easy adoption of this approach.
+
+### Checklist
+
+* ~~Dataset reconstruction~~
+* Model re-training
+* Reproducing experimental results in full (from start to finish, including model re-training)
+* Re-write sections and sub-sections: discussion of results, conclusions.
+* Editorial changes to thesis
+* Extending the existing work: demonstrate performance transferability to downstream QA, consider any additional potential for exploratory research
+* Re-release work
+* Prepare short-form paper
 
 ## Repository Structure
 
@@ -52,7 +65,7 @@ This work extends research on hierarchical ontology embeddings (HiT, OnT) for bi
 
 This repo is, of course, a work in progress. As I won't have **as much** time to work on independent research, progress may be *a little* slower than usual. However, I will try and push updates as frequently as possible.
 
-### Noted Issues with Thesis & Proposed Corrections
+### Noted Issues and Accompanying Corrections
 
 * Poorly written abstract in an attempt to save word count.
     * Fix: Replace the abstract with the original version, see [abstract.tex](corrections/thesis/abstract.tex).
@@ -63,9 +76,9 @@ This repo is, of course, a work in progress. As I won't have **as much** time to
 * Documented evaluation metric (nDCG) provides good intuition, but does not fully reflect implementation (one-to-one); not a huge issue as it would technically yield the same results, but principally, should be addressed (the footnote does at least draw attention to this).
 * nDCG also defines $dist(C^\star, D) = 0 \iff C^\star = D$; however, this is misleading (and technically inaccurate), since the quotient poset detailed under §3.1. means that any equivalence relations are unaccounted for in this description.
     * Fix: Replace with $dist(C^\star, D) = 0 \iff C^\star \equiv D$; and we might **explicitly** note that this does, in fact, induce a partial-order (a requisite for the subsequent transitive reduction and resulting Hasse Diagram; the way in which it is currently written under §3.1. implies this, though **it really should be made explicit**; and this, likely, belongs within a *larger proof*). The *(Work In Progress)* Proof [is available here.](./proofs/polyhierarchy.md)
-* HiT dataset construction **likely** requires the use of a reasoner as part of the build process, i.e. passing `elk` as an argument to the `reasoner_type` when loading the ontology within `HierarchyDatasetConstructor`, whereas the characterisation of "using the stated view" to train the encoders *(as written in the thesis)* is accurate in the case of OnT, since reasoning is an implicit operation during ELNormalisation, i.e $\sqsubseteq_{st}^{\ast} \rightarrow$ gets atomic concepts $\rightarrow$ gets role dependencies $\rightarrow$ applies EL normalisation $\rightarrow$ reflexive transitive closure $\rightarrow$ verbalise.
+* HiT dataset construction **likely** requires the use of a reasoner as part of the build process, i.e. passing `elk` as an argument for `reasoner_type` when loading the ontology prior to instanciating the `HierarchyDatasetConstructor` (see `./scripts/load_taxonomy.py`, line 57-58). The characterisation of "using the stated view" to train the encoders *(as written in the thesis)* is accurate in the case of OnT, since reasoning is an implicit operation during ELNormalisation, i.e $\sqsubseteq_{st}^{\ast} \rightarrow$ gets atomic concepts $\rightarrow$ gets role dependencies $\rightarrow$ applies EL normalisation $\rightarrow$ reflexive transitive closure $\rightarrow$ verbalisation. However, the build scripts as originally shipped set `reasoner_type` to `struct` when building the HiT dataset for training.
     * Fix: Modify the `./scripts/build_hit_data.sh` line 30 to line 31, and add `--infer` (which tells the HiT Dataset Constructor to use `elk` rather than `struct`) and *perhaps* add a footnote to the thesis *(it should likely be documented somewhere, it took me a while to figure this out)*.
-* The original evaluation dataset appears to contain **some** instances where $\equiv$ classes had not properly been inferred prior to constructing their ancestor sets, resulting in a shallow hierarchy, *(quite frustrating to realise now).* Though the build scripts that were shipped do work, so you can construct the dataset accurately using the provided scripts.
+* The shipped evaluation dataset appears to contain **some** instances where $\equiv$ classes had not properly been inferred prior to constructing their ancestor sets, resulting in a shallow hierarchy for a minority of cases. However, the build scripts that were shipped do function as intended, and as such the dataset can be accurately re-constructed using the provided scripts.
     * Fix: See the [updated evaluation dataset](./data/evaluation_dataset.json) in [the data directory.](./data).
 
 
