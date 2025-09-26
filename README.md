@@ -6,7 +6,7 @@ This repository serves for any continuation of work (post-submission) based on t
 
 This work extends research on effective knowledge retrieval using transformer-based ontology embeddings, i.e. HiT and OnT, applied to biomedical question answering, with a specific focus on SNOMED CT.
 
-**Number of noted corrections (25/09/2025):** 8
+**Number of noted corrections (25/09/2025):** 9
 
 **Currently working on:** Re-training HiT-FULL and OnT-FULL on H200 GPU architecture; increased batch size from $32$ to $64$ and $96$, changed epochs from $1$ to $2$; and decreased the learning rate from $1e-5$ to $5e-6$. Spending some time thoughtfully reflecting upon methodological decisions and re-evaluating.
 
@@ -83,6 +83,9 @@ This repo is, of course, a work in progress. As I won't have **as much** time to
 * The pipeline for OnT-training that has been shipped via `Makefile` (`make ont-data`) fails to apply normalisation to the class labels or role labels (which is required when training on SNOMED~CT due to leakage). Note that the process was undertaken originally during model training, however, it has been failed to be included as part of the full build pipeline *(it will train, it just won't remove high-level semantic branches from verbalisations prior to training)*.
     * Fix: Include [this (`preprocess_ont_dir.py`)](./scripts/preprocess_ont_dir.py) script during the build pipeline after having run `ELNormalizeData.py` with the following parameters `python ./scripts/preprocess_ont_dir.py --base-dir ./data/ont_dataset --strip-parentheses --to-lower-case --collapse-whitespace`.
     * Fix: Modify `./scripts/build_ont_data.sh` to include `conda run -n "$AUTO_ENV_NAME" python ./scripts/preprocess_ont_dir.py --base-dir ./data/ont_dataset --strip-parentheses --to-lower-case --collapse-whitespace` after `ELNormalizeData.py` completes.
+* The discussion of the HiT/OnT training procedure is inaccurate. HiT/OnT training struggles with $NF1$, not $NF2 \rightarrow NF4$, in fact $NF2 \rightarrow NF4$ performs well, $NF1$ is where the models struggle *(this mistake was likely made by accidently misreading results as reported directly within the console)*.
+    * Fix: Correct the `retrieval-notebook.ipynb` and Appendix.F discussion of assumption testing regarding ontology size to reflect the correctly interpreted results *(note that this doesn't change the conslusion, it is simply a mischaracterisation)*.
+
 
 ## Preliminary Reflective Thoughts
 
