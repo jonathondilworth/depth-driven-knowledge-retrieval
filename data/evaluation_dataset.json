@@ -225,10 +225,6 @@
         ]
       },
       {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 11
-      },
-      {
         "iri": "http://snomed.info/id/38866009",
         "depth": 12,
         "rdfs:label": "Body part structure (body structure)",
@@ -1230,10 +1226,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 8
       }
     ],
     "anonymous_axioms": [],
@@ -1453,10 +1445,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 7
       }
     ],
     "anonymous_axioms": [],
@@ -1788,10 +1776,6 @@
         "depth": 12,
         "rdfs:label": "Digestive tract part (body structure)",
         "skos:prefLabel": "Digestive tract part"
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 12
       },
       {
         "iri": "http://snomed.info/id/38866009",
@@ -2131,10 +2115,6 @@
         "skos:prefLabel": "Digestive tract part"
       },
       {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 11
-      },
-      {
         "iri": "http://snomed.info/id/38866009",
         "depth": 12,
         "rdfs:label": "Body part structure (body structure)",
@@ -2337,10 +2317,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 8
       }
     ],
     "anonymous_axioms": [],
@@ -2475,10 +2451,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 8
       }
     ],
     "anonymous_axioms": [],
@@ -2539,10 +2511,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 5
       }
     ],
     "anonymous_axioms": [],
@@ -2696,10 +2664,6 @@
         "depth": 7,
         "rdfs:label": "Chemical (substance)",
         "skos:prefLabel": "Chemical"
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 7
       },
       {
         "iri": "http://snomed.info/id/312413002",
@@ -2861,10 +2825,6 @@
         "skos:prefLabel": "Disorder of abdominopelvic segment of trunk"
       },
       {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 5
-      },
-      {
         "iri": "http://snomed.info/id/128121009",
         "depth": 6,
         "rdfs:label": "Disorder of trunk (disorder)",
@@ -3013,10 +2973,6 @@
         "depth": 7,
         "rdfs:label": "Organic nitrogen compound (substance)",
         "skos:prefLabel": "Organic nitrogen compound"
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 7
       },
       {
         "iri": "http://snomed.info/id/11257001",
@@ -3521,10 +3477,6 @@
         "skos:altLabels": [
           "Observation of trunk structure"
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 6
       }
     ],
     "anonymous_axioms": [],
@@ -3881,10 +3833,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 10
       }
     ],
     "anonymous_axioms": [],
@@ -4676,10 +4624,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 10
       }
     ],
     "anonymous_axioms": [],
@@ -4749,10 +4693,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 7
       }
     ],
     "anonymous_axioms": [],
@@ -5016,10 +4956,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 8
       }
     ],
     "anonymous_axioms": [],
@@ -5340,10 +5276,6 @@
         "skos:altLabels": [
           "Observation of trunk structure"
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 5
       }
     ],
     "anonymous_axioms": [],
@@ -5631,10 +5563,6 @@
         "skos:altLabels": [
           "Finding of thoracic segment of trunk"
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 7
       }
     ],
     "anonymous_axioms": [],
@@ -5779,10 +5707,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 7
       }
     ],
     "anonymous_axioms": [],
@@ -6004,10 +5928,6 @@
         "skos:altLabels": [
           "Observation of trunk structure"
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 6
       }
     ],
     "anonymous_axioms": [],
@@ -6474,10 +6394,6 @@
         "skos:altLabels": [
           "Lower body"
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 11
       }
     ],
     "anonymous_axioms": [],
@@ -6916,10 +6832,6 @@
         "depth": 5,
         "rdfs:label": "Injury of head and/or neck (disorder)",
         "skos:prefLabel": "Injury of head and/or neck"
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 6
       }
     ],
     "anonymous_axioms": [],
@@ -7079,10 +6991,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 7
       }
     ],
     "anonymous_axioms": [],
@@ -7237,10 +7145,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 8
       }
     ],
     "anonymous_axioms": [],
@@ -7303,10 +7207,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 6
       }
     ],
     "anonymous_axioms": [],
@@ -7407,10 +7307,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 10
       }
     ],
     "anonymous_axioms": [],
@@ -7624,10 +7520,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 7
       }
     ],
     "anonymous_axioms": [],
@@ -8609,10 +8501,6 @@
         ]
       },
       {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 6
-      },
-      {
         "iri": "http://snomed.info/id/441900009",
         "depth": 7,
         "rdfs:label": "Chemical (substance)",
@@ -8712,10 +8600,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 8
       }
     ],
     "anonymous_axioms": [],
@@ -8823,10 +8707,6 @@
         "skos:altLabels": [
           "Organic chemical"
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 5
       },
       {
         "iri": "http://snomed.info/id/312415009",
@@ -9165,10 +9045,6 @@
         "depth": 6,
         "rdfs:label": "Finding of abdominopelvic segment of trunk (finding)",
         "skos:prefLabel": "Finding of abdominopelvic segment of trunk"
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 6
       },
       {
         "iri": "http://snomed.info/id/302292003",
@@ -10191,10 +10067,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 10
       }
     ],
     "anonymous_axioms": [],
@@ -10270,10 +10142,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 6
       }
     ],
     "anonymous_axioms": [],
@@ -10445,10 +10313,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 13
       }
     ],
     "anonymous_axioms": [],
@@ -10578,10 +10442,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 10
       }
     ],
     "anonymous_axioms": [],
@@ -10958,10 +10818,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 7
       }
     ],
     "anonymous_axioms": [],
@@ -11037,10 +10893,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 6
       }
     ],
     "anonymous_axioms": [],
@@ -11247,10 +11099,6 @@
           "Mass",
           "Observation of a mass"
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 6
       }
     ],
     "anonymous_axioms": [],
@@ -11571,10 +11419,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 8
       }
     ],
     "anonymous_axioms": [],
@@ -11651,10 +11495,6 @@
           "SNOMED Clinical Terms version: 20250901 [R] (September 2025 Release)",
           "© 2002-2025 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO."
         ]
-      },
-      {
-        "iri": "http://www.w3.org/2002/07/owl#Thing",
-        "depth": 4
       }
     ],
     "anonymous_axioms": [],
