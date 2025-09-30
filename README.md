@@ -45,7 +45,7 @@ This work extends research on effective knowledge retrieval using transformer-ba
 
 ### Model Re-Training
 
-**New HiT Model**
+**Latest (New) HiT Model (FULL):**
 
 ```
         centri_weight   threshold       precision       recall  f1      accuracy        accuracy_on_negatives
@@ -72,9 +72,52 @@ epoch=20.0      0.7     -25.75  0.9506394863128662      0.965316116809845       
 testing 0.7     -25.68  0.9522665739059448      0.9647108912467957      0.9584484100341797      0.99239581823349        0.9951642751693726
 ```
 
-**New OnT Model**
+**Latest (New) OnT Model (FULL):**
 
-*In Progress*
+* Batch Size: 64
+* Learning Rate: 5e-6
+* Epochs: 2
+
+*NF1:*
+
+```
+H1: 1515, H10: 22885, H100: 49266
+MRR: 0.10855280723706726, MR: 2407.127354706022
+INFO:hierarchy_transformers.evaluation.ont_eval:Eval results: {'axiom_kind': 'nf1', 'centri_weight': 0.8, 'H@1': np.float64(0.0001469042749144), 'H@10': np.float64(0.5080853852847118), 'H@100': np.float64(0.7676878397161357), 'MRR': np.float64(0.15949874223568358), 'MR': np.float64(798.2874125637056), 'median': np.float64(10.0), 'AUC': np.float64(0.9989579476085229)}
+{'eval_axiom_kind': 'nf1', 'eval_centri_weight': 0.8, 'eval_H@1': np.float64(0.0001469042749144), 'eval_H@10': np.float64(0.5080853852847118), 'eval_H@100': np.float64(0.7676878397161357), 'eval_MRR': np.float64(0.15949874223568358), 'eval_MR': np.float64(798.2874125637056), 'eval_median': np.float64(10.0), 'eval_AUC': np.float64(0.9989579476085229), 'eval_runtime': 6422.3004, 'eval_samples_per_second': 0.0, 'eval_steps_per_second': 0.0, 'epoch': 2.0}
+```
+
+*NF2:*
+
+```
+H1: 18475, H10: 34550, H100: 47120
+MRR: 0.4332986059475026, MR: 413.3315862838026
+INFO:hierarchy_transformers.evaluation.ont_eval:Eval results nf2: {'axiom_kind': 'nf2', 'centri_weight': 0.8, 'H@1': np.float64(0.343369575318279), 'H@10': np.float64(0.6421336307034662), 'H@100': np.float64(0.8757550413530341), 'MRR': np.float64(0.4332986059475026), 'MR': np.float64(413.3315862838026), 'median': np.float64(5.0), 'AUC': np.float64(0.9994628145414776)}
+```
+
+*NF3:*
+
+```
+H1: 15599, H10: 22984, H100: 39428
+MRR: 0.3009283908001048, MR: 2507.2952005815428
+INFO:hierarchy_transformers.evaluation.ont_eval:Eval results nf3: {'axiom_kind': 'nf3', 'centri_weight': 0.8, 'H@1': np.float64(0.26370598279039104), 'H@10': np.float64(0.38855172180616365), 'H@100': np.float64(0.6665426943688402), 'MRR': np.float64(0.3009283908001048), 'MR': np.float64(2507.2952005815428), 'median': np.float64(25.0), 'AUC': np.float64(0.9967203346574399)}
+```
+
+*NF4:*
+
+```
+H1: 15803, H10: 16654, H100: 17301
+MRR: 0.9126695730789114, MR: 14.233130923330117
+INFO:hierarchy_transformers.evaluation.ont_eval:Eval results nf4: {'axiom_kind': 'nf4', 'centri_weight': 0.8, 'H@1': np.float64(0.8968276488281028), 'H@10': np.float64(0.9451222972589524), 'H@100': np.float64(0.981839850178764), 'MRR': np.float64(0.9126695730789114), 'MR': np.float64(14.233130923330117), 'median': np.float64(1.0), 'AUC': np.float64(0.9999829002753006)}
+```
+
+*COMBINED:*
+
+```
+INFO:hierarchy_transformers.evaluation.ont_eval:Combined eval results: {'axiom_kind': 'combined', 'centri_weight': 0.8, 'H@1': 0.19203353168035595, 'H@10': 0.48315718167612215, 'H@100': 0.7016096130308606, 'MRR': np.float64(0.28230296429238527), 'MR': np.float64(3844.0169736811717), 'median': np.float64(12.0), 'AUC': np.float64(0.9949627959787084)}
+```
+
+Perhaps a little better? I'm considering up-weighting the NF1 loss relative to NF2 -> NF4. Given that NF1 examples make up the majority of samples, the batch composition should be reasonable without any further changes; and I can't increase the batch size without distributing the load across multiple GPUs (expensive!). LR is already set to anneal linearly; switching to a cyclic LR (with `cycle_momentum=False`) would be simply be a trail and error type approach, but might be worth trying.
 
 ## Repository Structure
 
