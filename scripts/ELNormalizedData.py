@@ -111,7 +111,8 @@ class ELNormalizedData:
 
     def build_hierarchy_from_subsumptions(self):
         """construct an NF1 subsumption hierarchy for sampling hard negatives"""
-        all_nf1 = self.nf1_org + self.nf1 # TODO: reconsider whether this is appropriate...
+        #all_nf1 = self.nf1_org + self.nf1 # TODO: reconsider whether this is appropriate...
+        all_nf1 = self.nf1
         # build subsumptive maps: child <-> parent
         for child_id, parent_id in all_nf1:
             self.parent_to_children[parent_id].add(child_id)
