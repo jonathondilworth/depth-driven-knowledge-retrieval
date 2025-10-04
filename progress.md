@@ -10,16 +10,19 @@ This file outlines the current progress in terms of the number of corrections is
 
 **HiT**
 
-1. [HiT Model (Standard Training Procedure)](#model-results-and-model-re-training)
+[HiT Model (Standard Training Procedure)](#model-results-and-model-re-training)
 
 **OnT**
 
-1. [OnT Model One (Initial Re-Training Attempt)](#ont-model-full-1-initial-re-training-attempt-w-modified-parameters)
-2. [OnT Model Two (Exploratory Run \w Cosine Annealing & Accumulated Gradients)](#ont-model-training-run-2-exploratory-run-w-cosine-annealing-accumulated-gradients)
-3. 
+[OnT Model One (Initial Re-Training Attempt)](#ont-model-full-1-initial-re-training-attempt-w-modified-parameters)
+
+[OnT Model Two (Exploratory Run \w Cosine Annealing & Accumulated Gradients)](#ont-model-training-run-2-exploratory-run-w-cosine-annealing-accumulated-gradients)
+
 [OnT Model Three (Exploratory Run \w Cosine Annealing & Accumulated Gradients with Modified Logical Loss)](#ont-model-training-run-3-exploratory-run-w-cosine-annealing-accumulated-gradients--modified-logical-loss)
-4. [OnT Model Four (Re-Training Pre-existing HiT Tuned Model)](#ont-model-training-run-4-re-training-hit-tuned-model)
-5. [OnT Model Five (Excessive, Pre-longed Training Run \w 20 epochs; accumulated grads & modified loss weights)](#ont-model-training-run-5-pre-longed-training-run-for-ont-on-standard-plm-base-model-w-training-modified-parameters)
+
+[OnT Model Four (Re-Training Pre-existing HiT Tuned Model)](#ont-model-training-run-4-re-training-hit-tuned-model)
+
+[OnT Model Five (Excessive, Pre-longed Training Run \w 20 epochs; accumulated grads & modified loss weights)](#ont-model-training-run-5-pre-longed-training-run-for-ont-on-standard-plm-base-model-w-training-modified-parameters)
 
 ## Corrections
 
