@@ -10,6 +10,8 @@ This work extends research on effective knowledge retrieval using transformer-ba
 
 Progress is currently logged under [progress.md](./progress.md).
 
+**Currently Working On:** Modifications to `ELNormalizeData.py` and `transferID2text.py` for hard negatives in OnT training *(currently testing changes; will subsequently train and evaluate a new OnT model after training data has been produced)*. I might note that whilst OnT seems to underfit on large ontologies such as SNOMED CT, training HiT over 20 epochs may *(or may not)* be excessive. As such, in the meantime *(whilst I wait for these processes to complete)*, I'm validating that the HiT models are being appropriately trained *(note that for our retrieval tasks, we use mixed training samples, for mixed-hop prediction)*; I just want to double check that build pipeline uses the most appropriate settings/parameters when training the HiT model for use in evaluation.
+
 ## Corrections
 
 A list of issued corrections are provided under [corrections.md](./corrections/corrections.md), whereas corrected `.tex` files are located in the [thesis corrections](./corrections/thesis/) directory.
@@ -51,6 +53,10 @@ A list of issued corrections are provided under [corrections.md](./corrections/c
 ### Model Re-Training
 
 *(Moved to [progress.md](./progress.md)).*
+
+### Additional TODOs
+
+* Add a `MAX_JVM_RAM` variable to `.env` that allows the build pipeline to assign $>8$ GB of RAM when running scripts like `ELNormalizeData.py` and `DeepOnto` related scripts.
 
 ## Repository Structure
 
