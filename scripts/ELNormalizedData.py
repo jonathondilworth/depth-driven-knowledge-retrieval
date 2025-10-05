@@ -27,6 +27,8 @@ from transferID2text import load_train, load_val_test
 
 from collections import defaultdict, deque
 
+import tqdm as tqdm
+
 # fix random seed
 np.random.seed(42)
 
@@ -313,22 +315,75 @@ class ELNormalizedData:
         roles_name = {str(v[0]): k for k, v in self.role_names.items()}
         with open(os.path.join(self.output_dir,  "role_names.json"), "w") as f:
             json.dump(roles_name, f, indent=3)
-        
+
+# echo "128g" | conda run -n "$AUTO_ENV_NAME" --no-capture-output python ./lib/OnT/normalization/ELNormalizedData.py \
+#  --input ./data/snomedct-international.owl \
+#  --output ./data/ont_dataset
+
+        print("Preparing to handle Hierarchy (and save to disk).")
+
+        # linter suggests its not in scope for some reason (TODO: fix)
+        from tqdm import tqdm
+
         # save hierarchy structure for hard negatives
         if self.hard_negative_config['use_hard_negatives']:
+
+            # breaking this into more trackable chunks, so we can see what's going on...
+            print("Mapping antescendants...")
+            antescendant_mappings = {}
+            for concept_id, ant_set in tqdm(self.parent_to_children.items(), total=len(self.parent_to_children)):
+                antescendant_mappings[str(concept_id)] = list(ant_set)
+
+            print("Mapping ancestors...")
+            ancestor_mappings = {}
+            for concept_id, anc_set in tqdm(self.child_to_parents.items(), total=len(self.child_to_parents)):
+                ancestor_mappings[str(concept_id)] = list(anc_set)
             
+            print("Mapping siblings...")
+            sibling_mappings = {}
+            for concept_id, sib_set in tqdm(self.siblings_map.items(), total=len(self.siblings_map)):
+                sibling_mappings[str(concept_id)] = list(sib_set)
+
+            print("Mapping cousins...")
+            cousins_mappings = {}
+            for concept_id, cou_set in tqdm(self.cousins_map.items(), total=len(self.cousins_map)):
+                cousins_mappings[str(concept_id)] = list(cou_set)
+
+            print("Mapping Depths...")
+            depth_dict = {}
+            for concept_id, depth in tqdm(self.concept_depth.items(), total=len(self.concept_depth)):
+                depth_dict[str(concept_id)] = depth
+
+            print("Finally resolving hard negatives...")
+            hard_negatives_dict = {}
+            for concept_id in tqdm(self.concept_depth.keys(), len=(self.concept_depth.keys())):
+                hard_negatives_dict[str(concept_id)] = self.get_hard_negatives(concept_id)
+
+            print("Looks like we're done...")
+            print("Saving...")
+
             hierarchy_data = {
                 'config': self.hard_negative_config,
-                'parent_to_children': {str(k): list(v) for k, v in self.parent_to_children.items()},
-                'child_to_parents': {str(k): list(v) for k, v in self.child_to_parents.items()},
-                'siblings': {str(k): list(v) for k, v in self.siblings_map.items()},
-                'cousins': {str(k): list(v) for k, v in self.cousins_map.items()},
-                'concept_depth': {str(k): v for k, v in self.concept_depth.items()},
-                'hard_negatives': {
-                    str(cid): self.get_hard_negatives(cid) 
-                    for cid in self.concept_depth.keys()
-                }
+                'parent_to_children': antescendant_mappings,
+                'child_to_parents': ancestor_mappings,
+                'siblings': sibling_mappings,
+                'cousins': cousins_mappings,
+                'concept_depth': depth_dict,
+                'hard_negatives': hard_negatives_dict
             }
+
+            # hierarchy_data = {
+            #     'config': self.hard_negative_config,
+            #     'parent_to_children': {str(k): list(v) for k, v in self.parent_to_children.items()},
+            #     'child_to_parents': {str(k): list(v) for k, v in self.child_to_parents.items()},
+            #     'siblings': {str(k): list(v) for k, v in self.siblings_map.items()},
+            #     'cousins': {str(k): list(v) for k, v in self.cousins_map.items()},
+            #     'concept_depth': {str(k): v for k, v in self.concept_depth.items()},
+            #     'hard_negatives': {
+            #         str(cid): self.get_hard_negatives(cid) 
+            #         for cid in self.concept_depth.keys()
+            #     }
+            # }
             
             with open(os.path.join(self.output_dir, "hard_negatives.json"), "w") as f:
                 json.dump(hierarchy_data, f, indent=3)
