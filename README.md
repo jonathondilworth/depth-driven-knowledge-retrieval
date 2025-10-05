@@ -34,7 +34,7 @@ A list of issued corrections are provided under [corrections.md](./corrections/c
 
 ## Roadmap
 
-- **Initial Phase (2-4 weeks):** Reproducing experimental results, dataset reconstruction, and issuing any thesis corrections (if necessary). *(Update 22.09.25)* Note that editorial changes to the original thesis are likely required. Details on product manifolds should likely be folded into the preliminaries section, and we can probably collapse the encoder-only paragraphs into a single paragraph *(and possibly trim the introductory materials on Ontology)*.
+- **Initial Phase (2-4 weeks):** Reproducing experimental results, dataset reconstruction, and issuing any thesis corrections (if necessary).
 - **Extending Existing Work (1-2 month/s):** Improved methodology and experimental implementation, demonstrating transferability in retrieval gains for downstream biomedical QA.
 - **Exploratory research (ongoing):** A proof for inclusion in writing/paper showing that: $\sqsubseteq$ forms a quasi-order; then, the quotient poset $\rightarrow$ forms a partial order $\rightarrow$ allows for transitive reduction $\rightarrow$ the resulting Hasse diagram *(this is demonstrated through the example in Preliminaries, but a proof that further shows the retainment of poly-hierarchy/DAG ought to strengthen the motivation behind the use of mixed model spaces*); i.e. show that (4) does not collapse to pure hierarchy *(as I was initially concerned about this; however, having worked though multiple examples, this can be shown formally)*, then move to better understand which model/s and curvature/s might best suit the task *(spherical + hierarchical + euclidean)*, conduct experiments and report results. Develop a framework to allow for easy adoption of this approach.
 
@@ -52,7 +52,7 @@ A list of issued corrections are provided under [corrections.md](./corrections/c
 
 ### Model Re-Training
 
-*(Moved to [progress.md](./progress.md)).*
+*(Moved to [models.md](./research-notes/models.md)) under [research notes](./research-notes/).*
 
 ### Additional TODOs
 
@@ -62,6 +62,7 @@ A list of issued corrections are provided under [corrections.md](./corrections/c
 
 ```
 .
+├── research-notes          # for documenting additional notes and thought processes
 ├── corrections             # documented corrections from uom-thesis
 ├── data                    # .gitignore'd data dir, use of dvc/git-lfs should be supported
 ├── deployment              # terraform, ansible and automated deployment scripts
