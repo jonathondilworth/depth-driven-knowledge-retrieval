@@ -10,7 +10,9 @@ This work extends research on effective knowledge retrieval using transformer-ba
 
 Progress is currently logged under [progress.md](./progress.md).
 
-**Currently Working On:** Modifications to `ELNormalizeData.py` and `transferID2text.py` for *hard negatives* in OnT training *(which may or may not be a sensible approach, see [progress.md](./progress.md) for details)*; also continuing to work on model re-training.
+**Currently Working On:** Tried improving the performance of OnT on SNOMED CT (the full ontology) by (i) changing training parameters (see [models.md](./research-notes/models.md)); and have since modified `ELNormalizeData.py` and `transferID2text.py` in an attempt to implement *hard negatives*, though the implementation is too inefficient in its current form. Consideration has been given to the use of an alternate PLM for re-training, thereby increasing the dimensionality of the encoder module ($384 \rightarrow 768$). This would effect both the curvature of $B^n_\kappa$ and increase the radius of the Poincare ball (one might suppose it *could possibly* accomodate a larger ontology then). However, *one might suspect* the encoder would still struggle simultaneously learn $NF1 \rightarrow NF4$ for such a large *and complex* ontology. Another alternative approach could be curriculum learning, though this has not yet been explored in too great a depth.
+
+*Some additional thought will have to be given to this. Though, it is important to note that the results as originally reported are still valid, it's just that one may have hoped to see some further improvements.*
 
 ## Corrections
 
